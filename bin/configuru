@@ -1,4 +1,14 @@
 #!/usr/bin/env php
 <?php
 
-echo "Configuru";
+require __DIR__.'/../vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+
+$application->setName("Configuru");
+
+$application->add(new Effy\Configuru\Commands\UpdateCommand());
+
+$application->run();
