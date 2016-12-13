@@ -1,0 +1,13 @@
+{
+    "name": "effy/configuru",
+    "description": "The single source of configuration",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eszter Czotter",
+            "email": "eszter.czotter@gmail.com"
+        }
+    ],
+    "require": {}
+}
