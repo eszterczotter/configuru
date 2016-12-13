@@ -7,4 +7,6 @@ use Symfony\Component\Console\Application;
 
 $application = new Application();
 
+$application->setName("Configuru");
+
 $application->run();
