@@ -29,4 +29,9 @@ class UpdateCommandSpec extends ObjectBehavior
     {
         $this->getDescription()->shouldReturn('Updates your configuration');
     }
+
+    function it_has_a_help()
+    {
+        $this->getHelp()->shouldReturn('Run this command to rebuild your configuration from .guru files.');
+    }
 }

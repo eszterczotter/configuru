@@ -12,6 +12,7 @@ class UpdateCommand extends Command
     {
         $this->setName('update');
         $this->setDescription('Updates your configuration');
+        $this->setHelp('Run this command to rebuild your configuration from .guru files.');
     }
 
     public function execute(InputInterface $input, OutputInterface $output)
