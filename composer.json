@@ -9,7 +9,9 @@
             "email": "eszter.czotter@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "symfony/console": "^3.2"
+    },
     "require-dev": {
         "phpspec/phpspec": "^3.2"
     },
