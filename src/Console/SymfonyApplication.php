@@ -14,7 +14,7 @@ class SymfonyApplication
         $this->symfony = $symfony;
     }
 
-    public function run()
+    public function run() : void
     {
         $this->symfony->setName('Configuru');
         $this->symfony->add(new UpdateCommand());
