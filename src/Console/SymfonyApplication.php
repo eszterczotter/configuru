@@ -2,6 +2,8 @@
 
 namespace Configuru\Console;
 
-class SymfonyApplication
+use Symfony\Component\Console\Application;
+
+class SymfonyApplication extends Application
 {
 }
