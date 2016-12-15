@@ -3,12 +3,9 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-use Symfony\Component\Console\Application;
+use Configuru\Console\SymfonyApplication as Application;
+use Symfony\Component\Console\Application as SymfonyApplication;
 
-$application = new Application();
-
-$application->setName("Configuru");
-
-$application->add(new Configuru\Commands\UpdateCommand());
+$application = new Application(new SymfonyApplication());
 
 $application->run();
