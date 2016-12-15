@@ -1,10 +1,9 @@
 <?php
 
-namespace unit\Effy\Configuru\Commands;
+namespace unit\Configuru\Commands;
 
-use Effy\Configuru\Commands\UpdateCommand;
+use Configuru\Commands\UpdateCommand;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Symfony\Component\Console\Command\Command;
 
 class UpdateCommandSpec extends ObjectBehavior

@@ -1,6 +1,6 @@
 <?php
 
-namespace Effy\Configuru\Commands;
+namespace Configuru\Commands;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

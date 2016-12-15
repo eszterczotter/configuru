@@ -1,7 +1,7 @@
 suites:
   main:
-    namespace: Effy\Configuru
-    psr4_prefix: Effy\Configuru
+    namespace: Configuru
+    psr4_prefix: Configuru
     src_path: src
     spec_path: tests
     spec_prefix: unit

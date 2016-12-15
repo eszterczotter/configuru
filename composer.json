@@ -1,6 +1,6 @@
 {
-    "name": "effy/configuru",
-    "description": "The single source of configuration",
+    "name": "configuru/configuru",
+    "description": "A single source of configuration",
     "type": "package",
     "license": "MIT",
     "authors": [
@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Effy\\Configuru\\": "src/"
+            "Configuru\\": "src/"
         }
     },
     "bin": ["bin/configuru"]
