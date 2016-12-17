@@ -6,7 +6,7 @@ class Application
 {
     public function run()
     {
-        $app = \Configuru\Console\Symfony\Application::build();
+        $app = \Configuru\Console\Symfony\Kernel::build();
         $app->run();
     }
 }

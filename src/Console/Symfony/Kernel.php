@@ -6,7 +6,7 @@ use Configuru\Console\Application as BaseApplication;
 use Configuru\Console\Symfony\Commands\BuildCommand;
 use Symfony\Component\Console\Application as Symfony;
 
-class Application extends BaseApplication
+class Kernel extends BaseApplication
 {
     private $symfony;
 

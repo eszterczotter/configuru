@@ -4,12 +4,12 @@ namespace unit\Configuru\Console\Symfony;
 
 use Configuru\Console\Symfony\Commands\BuildCommand;
 use Configuru\Console\Application as ApplicationContract;
-use Configuru\Console\Symfony\Application as Application;
+use Configuru\Console\Symfony\Kernel;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\Console\Application as Symfony;
 
-class ApplicationSpec extends ObjectBehavior
+class KernelSpec extends ObjectBehavior
 {
     function let(Symfony $symfony)
     {
@@ -18,7 +18,7 @@ class ApplicationSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType(Application::class);
+        $this->shouldHaveType(Kernel::class);
     }
 
     function it_is_a_console_application()
@@ -38,6 +38,6 @@ class ApplicationSpec extends ObjectBehavior
     function it_creates_itself()
     {
         $this->beConstructedThrough('build');
-        $this->shouldHaveType(Application::class);
+        $this->shouldHaveType(Kernel::class);
     }
 }
