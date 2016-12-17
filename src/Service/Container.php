@@ -2,11 +2,17 @@
 
 namespace Configuru\Service;
 
+use Configuru\Console\Kernel;
+use Configuru\Console\Symfony\Kernel as SymfonyKernel;
 use League\Container\Container as League;
 use League\Container\ReflectionContainer;
 
 class Container
 {
+    private $services = [
+        Kernel::class => SymfonyKernel::class,
+    ];
+
     /**
      * @var League|null
      */
@@ -16,6 +22,7 @@ class Container
     {
         $this->league = $league ?: new League();
         $this->league->delegate(new ReflectionContainer());
+        $this->configure();
     }
 
     public function get(string $service)
@@ -28,8 +35,11 @@ class Container
         $this->league->add($service, $instance);
     }
 
-    public function share(string $service)
+    private function configure()
     {
-        $this->league->share($service);
+        $this->set(self::class, $this);
+        foreach ($this->services as $service => $implementation) {
+            $this->set($service, $this->get($implementation));
+        }
     }
 }

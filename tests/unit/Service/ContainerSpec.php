@@ -2,6 +2,8 @@
 
 namespace unit\Configuru\Service;
 
+use Configuru\Console\Kernel;
+use Configuru\Console\Symfony\Kernel as SymfonyKernel;
 use Configuru\Service\Container;
 use League\Container\Container as League;
 use League\Container\ReflectionContainer;
@@ -14,6 +16,8 @@ class ContainerSpec extends ObjectBehavior
     function let(League $league)
     {
         $this->beConstructedWith($league);
+        $league->add(Container::class, $this)->shouldBeCalled();
+        $league->add(Kernel::class, null)->shouldBeCalled();
         $league->delegate(Argument::type(ReflectionContainer::class))->shouldBeCalled();
     }
 
@@ -35,17 +39,5 @@ class ContainerSpec extends ObjectBehavior
 
         $this->set(stdClass::class, $instance);
         $this->get(stdClass::class)->shouldReturn($instance);
-    }
-
-    function it_shares_a_class(League $league, stdClass $instance)
-    {
-        $league->share(stdClass::class)->shouldBeCalled();
-        $league->get(stdClass::class)->willReturn($instance);
-
-        $this->share(stdClass::class);
-        $first = $this->get(stdClass::class);
-        $second = $this->get(stdClass::class);
-
-        $first->shouldBe($second);
     }
 }

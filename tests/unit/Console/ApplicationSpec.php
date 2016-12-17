@@ -24,7 +24,6 @@ class ApplicationSpec extends ObjectBehavior
     function it_runs(Container $container, Kernel $kernel)
     {
         $container->get(Kernel::class)->willReturn($kernel);
-        $container->set(Kernel::class, Argument::type(SymfonyKernel::class))->shouldBeCalled();
         $kernel->process()->shouldBeCalled();
 
         $this->run();

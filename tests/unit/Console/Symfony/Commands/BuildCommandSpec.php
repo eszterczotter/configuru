@@ -2,6 +2,7 @@
 
 namespace unit\Configuru\Console\Symfony\Commands;
 
+use Configuru\Commands\Commander;
 use Configuru\Console\Symfony\Commands\BuildCommand;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\Console\Command\Command;
@@ -10,6 +11,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class BuildCommandSpec extends ObjectBehavior
 {
+    function let(Commander $commander)
+    {
+        $this->beConstructedWith($commander);
+    }
+
     function it_is_initializable()
     {
         $this->shouldHaveType(BuildCommand::class);
