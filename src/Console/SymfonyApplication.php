@@ -5,7 +5,7 @@ namespace Configuru\Console;
 use Configuru\Commands\UpdateCommand;
 use Symfony\Component\Console\Application as Symfony;
 
-class SymfonyApplication
+class SymfonyApplication implements Application
 {
     private $symfony;
 

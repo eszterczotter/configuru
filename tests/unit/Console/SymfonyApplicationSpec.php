@@ -20,6 +20,11 @@ class SymfonyApplicationSpec extends ObjectBehavior
         $this->shouldHaveType(Application::class);
     }
 
+    function it_is_a_console_application()
+    {
+        $this->shouldHaveType(\Configuru\Console\Application::class);
+    }
+
     function it_runs(Symfony $symfony)
     {
         $this->run();
