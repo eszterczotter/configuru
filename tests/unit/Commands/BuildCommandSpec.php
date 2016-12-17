@@ -13,6 +13,11 @@ class BuildCommandSpec extends ObjectBehavior
         $this->shouldHaveType(BuildCommand::class);
     }
 
+    function it_is_a_command()
+    {
+        $this->shouldHaveType(\Configuru\Commands\Command::class);
+    }
+
     function it_executes()
     {
         $this->execute();

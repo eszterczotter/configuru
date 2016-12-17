@@ -2,7 +2,7 @@
 
 namespace Configuru\Commands;
 
-class BuildCommand
+class BuildCommand implements Command
 {
     public function execute()
     {
