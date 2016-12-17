@@ -5,6 +5,8 @@ namespace unit\Configuru\Console\Symfony\Commands;
 use Configuru\Console\Symfony\Commands\BuildCommand;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class BuildCommandSpec extends ObjectBehavior
 {
@@ -32,5 +34,12 @@ class BuildCommandSpec extends ObjectBehavior
     function it_has_a_help()
     {
         $this->getHelp()->shouldReturn('Run this command to (re)build your configuration from the .guru files.');
+    }
+
+    function it_executes(InputInterface $input, OutputInterface $output)
+    {
+        $this->execute($input, $output);
+
+        $output->writeln("Configuru build successful.")->shouldHaveBeenCalled();
     }
 }
