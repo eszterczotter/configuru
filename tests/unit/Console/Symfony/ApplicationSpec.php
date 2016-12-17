@@ -1,15 +1,15 @@
 <?php
 
-namespace unit\Configuru\Console;
+namespace unit\Configuru\Console\Symfony;
 
 use Configuru\Console\Symfony\Commands\BuildCommand;
 use Configuru\Console\Application as ApplicationContract;
-use Configuru\Console\SymfonyApplication as Application;
+use Configuru\Console\Symfony\Application as Application;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\Console\Application as Symfony;
 
-class SymfonyApplicationSpec extends ObjectBehavior
+class ApplicationSpec extends ObjectBehavior
 {
     function let(Symfony $symfony)
     {

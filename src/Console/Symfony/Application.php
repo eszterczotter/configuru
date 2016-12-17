@@ -1,11 +1,12 @@
 <?php
 
-namespace Configuru\Console;
+namespace Configuru\Console\Symfony;
 
+use Configuru\Console\Application as ApplicationContract;
 use Configuru\Console\Symfony\Commands\BuildCommand;
 use Symfony\Component\Console\Application as Symfony;
 
-class SymfonyApplication implements Application
+class Application implements ApplicationContract
 {
     private $symfony;
 
