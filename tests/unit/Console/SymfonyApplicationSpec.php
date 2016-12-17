@@ -2,7 +2,7 @@
 
 namespace unit\Configuru\Console;
 
-use Configuru\Console\Commands\BuildCommand;
+use Configuru\Console\Symfony\Commands\BuildCommand;
 use Configuru\Console\Application as ApplicationContract;
 use Configuru\Console\SymfonyApplication as Application;
 use PhpSpec\ObjectBehavior;

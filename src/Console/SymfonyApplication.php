@@ -2,9 +2,8 @@
 
 namespace Configuru\Console;
 
-use Configuru\Console\Commands\BuildCommand;
+use Configuru\Console\Symfony\Commands\BuildCommand;
 use Symfony\Component\Console\Application as Symfony;
-use Symfony\Component\Finder\Finder;
 
 class SymfonyApplication implements Application
 {
