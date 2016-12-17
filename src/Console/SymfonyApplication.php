@@ -2,7 +2,7 @@
 
 namespace Configuru\Console;
 
-use Configuru\Commands\BuildCommand;
+use Configuru\Console\Commands\BuildCommand;
 use Symfony\Component\Console\Application as Symfony;
 
 class SymfonyApplication implements Application

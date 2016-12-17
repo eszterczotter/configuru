@@ -1,8 +1,8 @@
 <?php
 
-namespace unit\Configuru\Commands;
+namespace unit\Configuru\Console\Commands;
 
-use Configuru\Commands\BuildCommand;
+use Configuru\Console\Commands\BuildCommand;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\Console\Command\Command;
 
