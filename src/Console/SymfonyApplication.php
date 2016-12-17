@@ -2,7 +2,7 @@
 
 namespace Configuru\Console;
 
-use Configuru\Commands\UpdateCommand;
+use Configuru\Commands\BuildCommand;
 use Symfony\Component\Console\Application as Symfony;
 
 class SymfonyApplication implements Application
@@ -28,6 +28,6 @@ class SymfonyApplication implements Application
     private function configure()
     {
         $this->symfony->setName('Configuru');
-        $this->symfony->add(new UpdateCommand());
+        $this->symfony->add(new BuildCommand());
     }
 }

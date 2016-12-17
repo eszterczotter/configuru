@@ -11,12 +11,12 @@ class BinaryCest
     function thereIsAnUpdateCommand(AcceptanceTester $I)
     {
         $I->runShellCommand('bin/configuru');
-        $I->seeInShellOutput('update  Updates your configuration');
+        $I->seeInShellOutput('build  Build your configuration');
     }
 
     function theUpdateCommandHasHelp(AcceptanceTester $I)
     {
-        $I->runShellCommand('bin/configuru update --help');
-        $I->seeInShellOutput('Run this command to rebuild your configuration from .guru files.');
+        $I->runShellCommand('bin/configuru build --help');
+        $I->seeInShellOutput('Run this command to (re)build your configuration from the .guru files.');
     }
 }

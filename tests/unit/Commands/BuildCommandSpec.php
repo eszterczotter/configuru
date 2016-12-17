@@ -2,15 +2,15 @@
 
 namespace unit\Configuru\Commands;
 
-use Configuru\Commands\UpdateCommand;
+use Configuru\Commands\BuildCommand;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\Console\Command\Command;
 
-class UpdateCommandSpec extends ObjectBehavior
+class BuildCommandSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType(UpdateCommand::class);
+        $this->shouldHaveType(BuildCommand::class);
         $this->configure();
     }
 
@@ -21,16 +21,16 @@ class UpdateCommandSpec extends ObjectBehavior
 
     function it_has_a_name()
     {
-        $this->getName()->shouldReturn('update');
+        $this->getName()->shouldReturn('build');
     }
 
     function it_has_a_description()
     {
-        $this->getDescription()->shouldReturn('Updates your configuration');
+        $this->getDescription()->shouldReturn('Build your configuration');
     }
 
     function it_has_a_help()
     {
-        $this->getHelp()->shouldReturn('Run this command to rebuild your configuration from .guru files.');
+        $this->getHelp()->shouldReturn('Run this command to (re)build your configuration from the .guru files.');
     }
 }

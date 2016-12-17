@@ -1,9 +1,9 @@
 <?php
 
-class UpdateCest
+class BuildCommandCest
 {
     function updateConfiguration(AcceptanceTester $I)
     {
-        $I->runShellCommand("bin/configuru update");
+        $I->runShellCommand("bin/configuru build");
     }
 }
