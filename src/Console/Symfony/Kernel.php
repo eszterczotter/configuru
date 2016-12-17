@@ -2,11 +2,11 @@
 
 namespace Configuru\Console\Symfony;
 
-use Configuru\Console\Application as BaseApplication;
+use Configuru\Console\Kernel as KernelContract;
 use Configuru\Console\Symfony\Commands\BuildCommand;
 use Symfony\Component\Console\Application as Symfony;
 
-class Kernel extends BaseApplication
+class Kernel implements KernelContract
 {
     private $symfony;
 
@@ -20,7 +20,7 @@ class Kernel extends BaseApplication
         return new self(new Symfony());
     }
 
-    public function run() : void
+    public function process() : void
     {
         $this->configure();
         $this->symfony->run();
