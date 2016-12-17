@@ -34,10 +34,4 @@ class KernelSpec extends ObjectBehavior
         $symfony->add(Argument::type(BuildCommand::class))->shouldHaveBeenCalled();
         $symfony->run()->shouldHaveBeenCalled();
     }
-
-    function it_creates_itself()
-    {
-        $this->beConstructedThrough('build');
-        $this->shouldHaveType(Kernel::class);
-    }
 }

@@ -15,11 +15,6 @@ class Kernel implements KernelContract
         $this->symfony = $symfony;
     }
 
-    public static function build()
-    {
-        return new self(new Symfony());
-    }
-
     public function process() : void
     {
         $this->configure();
