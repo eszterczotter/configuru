@@ -2,11 +2,11 @@
 
 namespace Configuru\Console\Symfony;
 
-use Configuru\Console\Application as ApplicationContract;
+use Configuru\Console\Application as BaseApplication;
 use Configuru\Console\Symfony\Commands\BuildCommand;
 use Symfony\Component\Console\Application as Symfony;
 
-class Application implements ApplicationContract
+class Application extends BaseApplication
 {
     private $symfony;
 

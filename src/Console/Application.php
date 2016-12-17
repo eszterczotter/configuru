@@ -2,7 +2,11 @@
 
 namespace Configuru\Console;
 
-interface Application
+class Application
 {
-    public function run();
+    public function run()
+    {
+        $app = \Configuru\Console\Symfony\Application::build();
+        $app->run();
+    }
 }
