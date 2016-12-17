@@ -14,6 +14,11 @@ class SymfonyApplication implements Application
         $this->symfony = $symfony;
     }
 
+    public static function build()
+    {
+        return new self(new Symfony());
+    }
+
     public function run() : void
     {
         $this->configure();

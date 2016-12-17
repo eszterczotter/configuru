@@ -4,8 +4,6 @@
 require __DIR__.'/../vendor/autoload.php';
 
 use Configuru\Console\SymfonyApplication as Application;
-use Symfony\Component\Console\Application as SymfonyApplication;
 
-$application = new Application(new SymfonyApplication());
-
+$application = Application::build();
 $application->run();

@@ -3,6 +3,7 @@
 namespace unit\Configuru\Console;
 
 use Configuru\Commands\UpdateCommand;
+use Configuru\Console\Application as ApplicationContract;
 use Configuru\Console\SymfonyApplication as Application;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -22,7 +23,7 @@ class SymfonyApplicationSpec extends ObjectBehavior
 
     function it_is_a_console_application()
     {
-        $this->shouldHaveType(\Configuru\Console\Application::class);
+        $this->shouldHaveType(ApplicationContract::class);
     }
 
     function it_runs(Symfony $symfony)
@@ -32,5 +33,11 @@ class SymfonyApplicationSpec extends ObjectBehavior
         $symfony->setName('Configuru')->shouldHaveBeenCalled();
         $symfony->add(Argument::type(UpdateCommand::class))->shouldHaveBeenCalled();
         $symfony->run()->shouldHaveBeenCalled();
+    }
+
+    function it_creates_itself()
+    {
+        $this->beConstructedThrough('build');
+        $this->shouldHaveType(Application::class);
     }
 }
