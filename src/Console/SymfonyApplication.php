@@ -16,8 +16,13 @@ class SymfonyApplication
 
     public function run() : void
     {
+        $this->configure();
+        $this->symfony->run();
+    }
+
+    private function configure()
+    {
         $this->symfony->setName('Configuru');
         $this->symfony->add(new UpdateCommand());
-        $this->symfony->run();
     }
 }
