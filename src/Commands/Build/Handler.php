@@ -29,7 +29,7 @@ class Handler
         foreach ($config['replace'] ?? [] as $key => $value) {
             $replace[":({$key})"] = $value;
         }
-        $files = $this->finder->files()->exclude('tests')->in(getcwd())->name('*.guru');
+        $files = $this->finder->in(realpath($command->getPath()))->files()->name('*.guru');
         foreach ($files as $file) {
             $path = preg_replace('/\.guru$/', '', $file->getRealPath());
             file_put_contents($path, strtr($file->getContents(), $replace));

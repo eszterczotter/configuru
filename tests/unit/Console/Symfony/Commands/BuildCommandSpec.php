@@ -19,7 +19,6 @@ class BuildCommandSpec extends ObjectBehavior
     function it_is_initializable()
     {
         $this->shouldHaveType(BuildCommand::class);
-        $this->configure();
     }
 
     function it_is_a_command()
