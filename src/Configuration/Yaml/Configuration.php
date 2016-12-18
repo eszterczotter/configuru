@@ -14,7 +14,7 @@ class Configuration implements ConfigurationContract
         $this->configuration = $yaml->parse(file_get_contents(getcwd() . '/configuru.yml'));
     }
 
-    public function getReplaces(): array
+    public function getReplacements(): array
     {
         return $this->configuration['replace'] ?? [];
     }

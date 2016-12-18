@@ -26,7 +26,7 @@ class Handler
 
     public function handle(Command $command)
     {
-        foreach ($this->configuration->getReplaces() as $key => $value) {
+        foreach ($this->configuration->getReplacements() as $key => $value) {
             $replace[":({$key})"] = $value;
         }
         $files = $this->finder->in(realpath($command->getPath()))->files()->name('*.guru');

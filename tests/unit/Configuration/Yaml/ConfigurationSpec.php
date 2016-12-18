@@ -28,13 +28,13 @@ class ConfigurationSpec extends ObjectBehavior
 
     function its_default_replaces_is_empty()
     {
-        $this->getReplaces()->shouldReturn([]);
+        $this->getReplacements()->shouldReturn([]);
     }
 
     function it_returns_the_correct_replaces(Yaml $yaml)
     {
         $yaml->parse(Argument::type('string'))->willReturn(['replace' => ['replaces']]);
         $this->beConstructedWith($yaml);
-        $this->getReplaces()->shouldReturn(['replaces']);
+        $this->getReplacements()->shouldReturn(['replaces']);
     }
 }
