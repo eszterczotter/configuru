@@ -2,6 +2,8 @@
 
 namespace Configuru\Service;
 
+use Configuru\Configuration\Configuration;
+use Configuru\Configuration\Yaml\Configuration as YamlConfiguration;
 use Configuru\Console\Kernel;
 use Configuru\Console\Symfony\Kernel as SymfonyKernel;
 use League\Container\Container as League;
@@ -11,6 +13,7 @@ class Container
 {
     private $services = [
         Kernel::class => SymfonyKernel::class,
+        Configuration::class => YamlConfiguration::class,
     ];
 
     /**

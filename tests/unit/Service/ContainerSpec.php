@@ -2,6 +2,7 @@
 
 namespace unit\Configuru\Service;
 
+use Configuru\Configuration\Configuration;
 use Configuru\Console\Kernel;
 use Configuru\Console\Symfony\Kernel as SymfonyKernel;
 use Configuru\Service\Container;
@@ -18,6 +19,7 @@ class ContainerSpec extends ObjectBehavior
         $this->beConstructedWith($league);
         $league->add(Container::class, $this)->shouldBeCalled();
         $league->add(Kernel::class, null)->shouldBeCalled();
+        $league->add(Configuration::class, null)->shouldBeCalled();
         $league->delegate(Argument::type(ReflectionContainer::class))->shouldBeCalled();
     }
 
