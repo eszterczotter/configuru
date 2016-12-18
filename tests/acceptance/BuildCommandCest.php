@@ -12,6 +12,7 @@ class BuildCommandCest
     {
         $I->runShellCommand('bin/configuru build --help');
         $I->seeInShellOutput('Run this command to (re)build your configuration from the .guru files.');
+        $I->seeInShellOutput('path                  The path where to build. [default: "."]');
     }
 
     function buildConfiguru(AcceptanceTester $I)
