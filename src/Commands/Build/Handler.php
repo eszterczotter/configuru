@@ -2,6 +2,7 @@
 
 namespace Configuru\Commands\Build;
 
+use Configuru\Configuration\Configuration;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Yaml\Parser;
 
@@ -11,22 +12,21 @@ class Handler
      * @var Finder
      */
     private $finder;
-    /**
-     * @var Yaml
-     */
-    private $yaml;
 
-    public function __construct(Finder $finder, Parser $yaml)
+    /**
+     * @var Configuration
+     */
+    private $configuration;
+
+    public function __construct(Finder $finder, Configuration $configuration)
     {
         $this->finder = $finder;
-        $this->yaml = $yaml;
+        $this->configuration = $configuration;
     }
 
     public function handle(Command $command)
     {
-        $config = $this->yaml->parse(file_get_contents(getcwd() . '/configuru.yml'));
-        $replace = [];
-        foreach ($config['replace'] ?? [] as $key => $value) {
+        foreach ($this->configuration->getReplaces() as $key => $value) {
             $replace[":({$key})"] = $value;
         }
         $files = $this->finder->in(realpath($command->getPath()))->files()->name('*.guru');

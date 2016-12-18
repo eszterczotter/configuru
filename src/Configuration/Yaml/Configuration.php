@@ -7,13 +7,15 @@ use Symfony\Component\Yaml\Parser as Yaml;
 
 class Configuration implements ConfigurationContract
 {
-    /**
-     * @var Yaml
-     */
-    private $yaml;
+    private $configuration = [];
 
     public function __construct(Yaml $yaml)
     {
-        $this->yaml = $yaml;
+        $this->configuration = $yaml->parse(file_get_contents(getcwd() . '/configuru.yml'));
+    }
+
+    public function getReplaces(): array
+    {
+        return $this->configuration['replace'] ?? [];
     }
 }
