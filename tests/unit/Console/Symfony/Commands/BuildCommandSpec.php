@@ -41,6 +41,11 @@ class BuildCommandSpec extends ObjectBehavior
         $this->getHelp()->shouldReturn('Run this command to (re)build your configuration from the .guru files.');
     }
 
+    function its_has_the_correct_synopsis()
+    {
+        $this->getSynopsis()->shouldReturn('build [<path>]');
+    }
+
     function it_executes(InputInterface $input, OutputInterface $output)
     {
         $this->execute($input, $output);
