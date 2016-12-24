@@ -85,4 +85,10 @@ not just the typical config file extensions
 (yaml, php, json) but any text file you want
 as long as the filename contains `.guru`,
 it will use that file
-to build the same file without `.guru` in the filename. 
+to build the same file without `.guru` in the filename.
+
+### Flexible guru file names
+
+Actually, you can place the `.guru` extension anywhere in the filename.
+For example `.guru.config.yml` will build `.config.yml`.
+But `.guruconfig.yml` won't build `config.yml`
