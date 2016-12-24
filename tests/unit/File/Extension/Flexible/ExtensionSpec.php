@@ -23,4 +23,14 @@ class ExtensionSpec extends ObjectBehavior
     {
         $this->shouldHaveType(\Configuru\File\Extension\Extension::class);
     }
+
+    function it_removes_the_extension_from_the_path()
+    {
+        $this->remove('path.guru')->shouldReturn('path');
+    }
+
+    function it_gets_the_pattern()
+    {
+        $this->pattern()->shouldReturn('/\.guru(\.|$)/');
+    }
 }
