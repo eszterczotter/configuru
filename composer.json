@@ -1,5 +1,5 @@
 {
-    "name": "configuru/configuru",
+    "name": "codress/configuru",
     "description": "A single source of configuration",
     "type": "package",
     "license": "MIT",
