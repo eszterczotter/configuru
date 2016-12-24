@@ -33,4 +33,9 @@ class Configuration implements ConfigurationContract
     {
         return $yaml->parse($this->getConfigurationFileContents());
     }
+
+    public function getExtension(): string
+    {
+        return $this->configuration['extension'] ?? 'guru';
+    }
 }

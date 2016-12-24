@@ -20,8 +20,8 @@ class Container
     private $services = [
         Kernel::class => SymfonyKernel::class,
         Configuration::class => YamlConfiguration::class,
-        Finder::class => SymfonyFinder::class,
         Extension::class => FlexibleExtension::class,
+        Finder::class => SymfonyFinder::class,
         Builder::class => ParenthesesBuilder::class,
     ];
 

@@ -2,7 +2,7 @@
 
 namespace Configuru\File\Finder\Symfony;
 
-use Configuru\File\Symfony\SplFileInfo;
+use Configuru\File\Extension\Extension;
 use Symfony\Component\Finder\Finder as Symfony;
 
 class Finder implements \Configuru\File\Finder\Finder
@@ -12,9 +12,15 @@ class Finder implements \Configuru\File\Finder\Finder
      */
     private $symfony;
 
-    public function __construct(Symfony $symfony)
+    /**
+     * @var Extension
+     */
+    private $extension;
+
+    public function __construct(Symfony $symfony, Extension $extension)
     {
         $this->symfony = $symfony;
+        $this->extension = $extension;
     }
 
     /**
@@ -29,7 +35,7 @@ class Finder implements \Configuru\File\Finder\Finder
                     ->ignoreDotFiles(false)
                     ->in($path)
                     ->files()
-                    ->name('/\.guru(\.|$)/')
+                    ->name($this->extension->pattern())
             )
         );
     }

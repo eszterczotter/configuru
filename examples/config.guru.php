@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'key'   => 'correct value',
-    'but'   => 'not :(key)',
+    'key'   => ':(key)',
+    'but'   => 'not \:(key)',
 ];

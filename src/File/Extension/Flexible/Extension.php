@@ -2,13 +2,23 @@
 
 namespace Configuru\File\Extension\Flexible;
 
+use Configuru\Configuration\Configuration;
+
 class Extension implements \Configuru\File\Extension\Extension
 {
-    private $suffix = 'guru';
+    /**
+     * @var string
+     */
+    private $suffix;
+
+    public function __construct(Configuration $configuration)
+    {
+        $this->suffix = $configuration->getExtension();
+    }
 
     public function remove(string $path): string
     {
-        return strtr($path, ".{$this->suffix}", '');
+        return str_replace('.' . $this->suffix, '', $path);
     }
 
     public function pattern(): string
