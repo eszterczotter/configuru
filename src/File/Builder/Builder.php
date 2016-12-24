@@ -6,5 +6,5 @@ use SplFileInfo;
 
 interface Builder
 {
-    public function build(SplFileInfo $file) : void;
+    public function build(SplFileInfo $file);
 }

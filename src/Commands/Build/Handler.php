@@ -24,12 +24,12 @@ class Handler
         $this->builder = $builder;
     }
 
-    public function handle(Command $command) : void
+    public function handle(Command $command)
     {
         $this->buildFilesFrom(...$this->findGuruFiles($command));
     }
 
-    private function buildFilesFrom(SplFileInfo ...$files) : void
+    private function buildFilesFrom(SplFileInfo ...$files)
     {
         foreach ($files as $file) {
             $this->builder->build($file);

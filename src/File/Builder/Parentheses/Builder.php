@@ -17,22 +17,22 @@ class Builder implements \Configuru\File\Builder\Builder
         $this->configuration = $configuration;
     }
 
-    public function build(SplFileInfo $file): void
+    public function build(SplFileInfo $file)
     {
         $this->replaceContent($file);
     }
 
-    private function replaceContent(SplFileInfo $file): int
+    private function replaceContent(SplFileInfo $file) : int
     {
         return file_put_contents($this->getFileName($file), $this->getReplacedContent($file));
     }
 
-    private function getFileName(SplFileInfo $file): string
+    private function getFileName(SplFileInfo $file) : string
     {
         return strtr($file->getRealPath(), '.guru', '');
     }
 
-    private function getReplacedContent($file): string
+    private function getReplacedContent($file) : string
     {
         return strtr($file->getContents(), $this->getReplacePairs());
     }
