@@ -48,7 +48,7 @@ class Handler
 
     private function findGuruFiles(string $path) : array
     {
-        return array_values(iterator_to_array($this->finder->in($path)->files()->name('*.guru*')));
+        return array_values(iterator_to_array($this->finder->files()->ignoreDotFiles(false)->in($path)->files()->name('/\.guru(\.|$)/')));
     }
 
     private function getPath(Command $command): string

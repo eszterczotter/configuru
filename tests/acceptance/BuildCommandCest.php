@@ -25,6 +25,6 @@ class BuildCommandCest
         $I->seeInThisFile(':(key)');
         $I->dontSeeInThisFile('\:(key)');
         $I->dontSeeFileFound(__DIR__ . '/../../examples/config');
-        $I->seeFileFound(__DIR__ . '/../../examples/conf');
+        $I->seeFileFound(__DIR__ . '/../../examples/.env');
     }
 }
