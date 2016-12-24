@@ -15,7 +15,7 @@ class BuildCommandCest
         $I->seeInShellOutput('path                  The path where to build. [default: "."]');
     }
 
-    function buildConfiguru(AcceptanceTester $I)
+    function buildsTheConfigFilesFromTheGuruFiles(AcceptanceTester $I)
     {
         $I->copyDir(__DIR__ . '/../_files', __DIR__ . '/../../');
         $I->runShellCommand("bin/configuru build example");
