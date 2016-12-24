@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-require realpath(__DIR__ . '/../vendor/autoload.php') ?: realpath(__DIR__ . '/../autoload.php');
+require realpath(__DIR__ . '/../vendor/autoload.php')
+        ?: realpath(__DIR__ . '/../autoload.php')
+        ?: realpath(__DIR__ . '/../../../autoload.php');
 
 (new Configuru\Console\Application())->run();
