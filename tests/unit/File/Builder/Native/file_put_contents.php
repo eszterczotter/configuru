@@ -1,6 +1,6 @@
 <?php
 
-namespace Configuru\File\Builder\Parentheses;
+namespace Configuru\File\Builder\Native;
 
 class FilePutContents extends \Exception
 {

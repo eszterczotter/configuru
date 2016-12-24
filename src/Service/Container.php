@@ -9,7 +9,7 @@ use Configuru\Console\Symfony\Kernel as SymfonyKernel;
 use Configuru\Converter\Converter;
 use Configuru\Converter\Parentheses\Converter as ParenthesesConverter;
 use Configuru\File\Builder\Builder;
-use Configuru\File\Builder\Parentheses\Builder as ParenthesesBuilder;
+use Configuru\File\Builder\Native\Builder as ParenthesesBuilder;
 use Configuru\File\Extension\Extension;
 use Configuru\File\Extension\Flexible\Extension as FlexibleExtension;
 use Configuru\File\Finder\Finder;

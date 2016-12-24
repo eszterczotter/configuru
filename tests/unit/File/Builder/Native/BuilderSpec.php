@@ -1,10 +1,10 @@
 <?php
 
-namespace unit\Configuru\File\Builder\Parentheses;
+namespace unit\Configuru\File\Builder\Native;
 
 use Configuru\Converter\Converter;
-use Configuru\File\Builder\Parentheses\Builder;
-use Configuru\File\Builder\Parentheses\FilePutContents;
+use Configuru\File\Builder\Native\Builder;
+use Configuru\File\Builder\Native\FilePutContents;
 use Configuru\File\Extension\Extension;
 use PhpSpec\ObjectBehavior;
 use SplFileInfo;

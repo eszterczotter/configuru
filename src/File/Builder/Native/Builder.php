@@ -1,8 +1,7 @@
 <?php
 
-namespace Configuru\File\Builder\Parentheses;
+namespace Configuru\File\Builder\Native;
 
-use Configuru\Configuration\Configuration;
 use Configuru\Converter\Converter;
 use Configuru\File\Extension\Extension;
 use SplFileInfo;
