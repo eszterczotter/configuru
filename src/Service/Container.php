@@ -6,6 +6,8 @@ use Configuru\Configuration\Configuration;
 use Configuru\Configuration\Yaml\Configuration as YamlConfiguration;
 use Configuru\Console\Kernel;
 use Configuru\Console\Symfony\Kernel as SymfonyKernel;
+use Configuru\File\Finder;
+use Configuru\File\Symfony\Finder as SymfonyFinder;
 use League\Container\Container as League;
 use League\Container\ReflectionContainer;
 
@@ -14,6 +16,7 @@ class Container
     private $services = [
         Kernel::class => SymfonyKernel::class,
         Configuration::class => YamlConfiguration::class,
+        Finder::class => SymfonyFinder::class,
     ];
 
     /**

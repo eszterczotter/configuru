@@ -3,7 +3,7 @@
 namespace Configuru\Commands\Build;
 
 use Configuru\Configuration\Configuration;
-use Symfony\Component\Finder\Finder;
+use Configuru\File\Finder;
 use SplFileInfo;
 
 class Handler
@@ -26,7 +26,7 @@ class Handler
 
     public function handle(Command $command) : void
     {
-        $this->buildGuruFiles(...$this->getGuruFiles($command));
+        $this->buildGuruFiles(...$this->findGuruFiles($command));
     }
 
     private function buildGuruFiles(SplFileInfo ...$files) : void
@@ -36,19 +36,14 @@ class Handler
         }
     }
 
-    private function getGuruFiles(Command $command) : array
+    private function findGuruFiles(Command $command) : array
     {
-        return $this->findGuruFiles($this->getPath($command));
+        return $this->finder->findGuruFiles($this->getPath($command));
     }
 
     private function replaceContent(SplFileInfo $file): int
     {
         return file_put_contents($this->getFileName($file), $this->getReplacedContent($file));
-    }
-
-    private function findGuruFiles(string $path) : array
-    {
-        return array_values(iterator_to_array($this->finder->files()->ignoreDotFiles(false)->in($path)->files()->name('/\.guru(\.|$)/')));
     }
 
     private function getPath(Command $command): string
