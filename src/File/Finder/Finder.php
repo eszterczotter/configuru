@@ -1,6 +1,6 @@
 <?php
 
-namespace Configuru\File;
+namespace Configuru\File\Finder;
 
 use SplFileInfo;
 

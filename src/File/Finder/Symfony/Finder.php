@@ -1,10 +1,11 @@
 <?php
 
-namespace Configuru\File\Symfony;
+namespace Configuru\File\Finder\Symfony;
 
+use Configuru\File\Symfony\SplFileInfo;
 use Symfony\Component\Finder\Finder as Symfony;
 
-class Finder implements \Configuru\File\Finder
+class Finder implements \Configuru\File\Finder\Finder
 {
     /**
      * @var Finder

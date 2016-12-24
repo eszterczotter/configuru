@@ -3,7 +3,7 @@
 namespace Configuru\Commands\Build;
 
 use Configuru\File\Builder\Builder;
-use Configuru\File\Finder;
+use Configuru\File\Finder\Finder;
 use SplFileInfo;
 
 class Handler

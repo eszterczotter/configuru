@@ -8,8 +8,8 @@ use Configuru\Console\Kernel;
 use Configuru\Console\Symfony\Kernel as SymfonyKernel;
 use Configuru\File\Builder\Builder;
 use Configuru\File\Builder\Parentheses\Builder as ParenthesesBuilder;
-use Configuru\File\Finder;
-use Configuru\File\Symfony\Finder as SymfonyFinder;
+use Configuru\File\Finder\Finder;
+use Configuru\File\Finder\Symfony\Finder as SymfonyFinder;
 use League\Container\Container as League;
 use League\Container\ReflectionContainer;
 
