@@ -3,6 +3,7 @@
 namespace Configuru\File\Builder\Parentheses;
 
 use Configuru\Configuration\Configuration;
+use Configuru\File\Extension\Extension;
 use SplFileInfo;
 
 class Builder implements \Configuru\File\Builder\Builder
@@ -12,9 +13,15 @@ class Builder implements \Configuru\File\Builder\Builder
      */
     private $configuration;
 
-    public function __construct(Configuration $configuration)
+    /**
+     * @var Extension
+     */
+    private $extension;
+
+    public function __construct(Configuration $configuration, Extension $extension)
     {
         $this->configuration = $configuration;
+        $this->extension = $extension;
     }
 
     public function build(SplFileInfo $file)
@@ -29,7 +36,7 @@ class Builder implements \Configuru\File\Builder\Builder
 
     private function getFileName(SplFileInfo $file) : string
     {
-        return strtr($file->getRealPath(), '.guru', '');
+        return $this->extension->remove($file->getRealPath());
     }
 
     private function getReplacedContent($file) : string

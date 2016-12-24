@@ -8,6 +8,8 @@ use Configuru\Console\Kernel;
 use Configuru\Console\Symfony\Kernel as SymfonyKernel;
 use Configuru\File\Builder\Builder;
 use Configuru\File\Builder\Parentheses\Builder as ParenthesesBuilder;
+use Configuru\File\Extension\Extension;
+use Configuru\File\Extension\Flexible\Extension as FlexibleExtension;
 use Configuru\File\Finder\Finder;
 use Configuru\File\Finder\Symfony\Finder as SymfonyFinder;
 use League\Container\Container as League;
@@ -19,6 +21,7 @@ class Container
         Kernel::class => SymfonyKernel::class,
         Configuration::class => YamlConfiguration::class,
         Finder::class => SymfonyFinder::class,
+        Extension::class => FlexibleExtension::class,
         Builder::class => ParenthesesBuilder::class,
     ];
 
