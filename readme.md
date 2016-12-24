@@ -13,6 +13,13 @@ It is recommended
 that you only require this package for development,
 since this is intended to be a build tool.
 
+Or if you wish,
+you can install it globally.
+
+```
+composer global require configuru/configuru --dev
+```
+
 ## Getting Started
 
 ### Add configuru.yml
