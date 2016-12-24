@@ -6,6 +6,8 @@ use Configuru\Configuration\Configuration;
 use Configuru\Configuration\Yaml\Configuration as YamlConfiguration;
 use Configuru\Console\Kernel;
 use Configuru\Console\Symfony\Kernel as SymfonyKernel;
+use Configuru\Converter\Converter;
+use Configuru\Converter\Parentheses\Converter as ParenthesesConverter;
 use Configuru\File\Builder\Builder;
 use Configuru\File\Builder\Parentheses\Builder as ParenthesesBuilder;
 use Configuru\File\Extension\Extension;
@@ -22,6 +24,7 @@ class Container
         Configuration::class => YamlConfiguration::class,
         Extension::class => FlexibleExtension::class,
         Finder::class => SymfonyFinder::class,
+        Converter::class => ParenthesesConverter::class,
         Builder::class => ParenthesesBuilder::class,
     ];
 

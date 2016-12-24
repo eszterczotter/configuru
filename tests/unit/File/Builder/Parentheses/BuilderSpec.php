@@ -2,7 +2,7 @@
 
 namespace unit\Configuru\File\Builder\Parentheses;
 
-use Configuru\Configuration\Configuration;
+use Configuru\Converter\Converter;
 use Configuru\File\Builder\Parentheses\Builder;
 use Configuru\File\Builder\Parentheses\FilePutContents;
 use Configuru\File\Extension\Extension;
@@ -11,11 +11,11 @@ use SplFileInfo;
 
 class BuilderSpec extends ObjectBehavior
 {
-    function let(Configuration $configuration, Extension $extension)
+    function let(Extension $extension, Converter $converter)
     {
         require_once("file_get_contents.php"); // Mock of php's file_get_contents();
         require_once("file_put_contents.php"); // Mock of php's file_put_contents();
-        $this->beConstructedWith($configuration, $extension);
+        $this->beConstructedWith($extension, $converter);
     }
 
     function it_is_initializable()
@@ -29,14 +29,14 @@ class BuilderSpec extends ObjectBehavior
     }
 
     function it_builds_a_file(
-        Configuration $configuration,
         Extension $extension,
+        Converter $converter,
         SplFileInfo $file
     ) {
         // Given
         $file->getRealPath()->willReturn('path.guru');
         $extension->remove('path.guru')->willReturn('path');
-        $configuration->getReplacements()->willReturn(['key' => 'value']);
+        $converter->convert('path.guru content')->willReturn('converted content');
 
         // Then
         $this->shouldThrow(FilePutContents::class)->during('build', [$file]);

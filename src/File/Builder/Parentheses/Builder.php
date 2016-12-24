@@ -3,33 +3,29 @@
 namespace Configuru\File\Builder\Parentheses;
 
 use Configuru\Configuration\Configuration;
+use Configuru\Converter\Converter;
 use Configuru\File\Extension\Extension;
 use SplFileInfo;
 
 class Builder implements \Configuru\File\Builder\Builder
 {
     /**
-     * @var Configuration
-     */
-    private $configuration;
-
-    /**
      * @var Extension
      */
     private $extension;
 
-    public function __construct(Configuration $configuration, Extension $extension)
+    /**
+     * @var Converter
+     */
+    private $converter;
+
+    public function __construct(Extension $extension, Converter $converter)
     {
-        $this->configuration = $configuration;
         $this->extension = $extension;
+        $this->converter = $converter;
     }
 
     public function build(SplFileInfo $file)
-    {
-        $this->replaceContent($file);
-    }
-
-    private function replaceContent(SplFileInfo $file)
     {
         file_put_contents($this->getFileName($file), $this->getReplacedContent($file));
     }
@@ -41,18 +37,6 @@ class Builder implements \Configuru\File\Builder\Builder
 
     private function getReplacedContent($file) : string
     {
-        return strtr(file_get_contents($file->getRealPath()), $this->getReplacePairs());
-    }
-
-    private function getReplacePairs() : array
-    {
-        $replacements = [];
-
-        foreach ($this->configuration->getReplacements() as $key => $value) {
-            $replacements["\\:({$key})"] = ":({$key})";
-            $replacements[":({$key})"] = $value;
-        }
-
-        return $replacements;
+        return $this->converter->convert(file_get_contents($file->getRealPath()));
     }
 }
