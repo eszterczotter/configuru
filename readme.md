@@ -1,4 +1,4 @@
-# configuru/configuru
+# codress/configuru
 
 ## Installation
 
@@ -6,7 +6,7 @@ If you are using composer,
 you can easily install Configuru for your project.
 
 ```
-composer require configuru/configuru --dev
+composer require codress/configuru --dev
 ```
 
 It is recommended
