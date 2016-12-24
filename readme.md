@@ -77,3 +77,12 @@ as the first argument of the command.
 ```
 vendor/bin/configuru build path/to/build
 ```
+
+### All file types
+
+Notice that Configuru will build any text file,
+not just the typical config file extensions
+(yaml, php, json) but any text file you want
+as long as the filename contains `.guru`,
+it will use that file
+to build the same file without `.guru` in the filename. 
