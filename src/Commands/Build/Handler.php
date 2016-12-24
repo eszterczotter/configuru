@@ -58,7 +58,7 @@ class Handler
 
     private function getFileName(SplFileInfo $file): string
     {
-        return preg_replace('/\.guru/', '', $file->getRealPath());
+        return strtr($file->getRealPath(), '.guru', '');
     }
 
     private function getReplacedContent($file): string
