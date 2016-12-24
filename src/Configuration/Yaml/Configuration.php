@@ -11,11 +11,26 @@ class Configuration implements ConfigurationContract
 
     public function __construct(Yaml $yaml)
     {
-        $this->configuration = $yaml->parse(file_get_contents(getcwd() . '/configuru.yml'));
+        $this->configuration = $this->loadConfiguration($yaml);
     }
 
     public function getReplacements(): array
     {
         return $this->configuration['replace'] ?? [];
+    }
+
+    private function getConfigurationFilePath(): string
+    {
+        return getcwd() . '/configuru.yml';
+    }
+
+    private function getConfigurationFileContents(): string
+    {
+        return file_get_contents($this->getConfigurationFilePath());
+    }
+
+    private function loadConfiguration(Yaml $yaml): array
+    {
+        return $yaml->parse($this->getConfigurationFileContents());
     }
 }
