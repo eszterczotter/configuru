@@ -92,3 +92,8 @@ to build the same file without `.guru` in the filename.
 Actually, you can place the `.guru` extension anywhere in the filename.
 For example `.guru.config.yml` will build `.config.yml`.
 But `.guruconfig.yml` won't build `config.yml`
+
+### Examples
+
+You can find some examples in the `example` folder.
+It contains the guru files as well as the built result.
