@@ -17,6 +17,7 @@ class BuildCommandCest
 
     function buildsTheConfigFilesFromTheGuruFiles(AcceptanceTester $I)
     {
+        $I->cleanDir("example");
         $I->copyDir(__DIR__ . '/../_files', __DIR__ . '/../../');
         $I->runShellCommand("bin/configuru build example");
         $I->openFile(__DIR__ . '/../../example/config.yml');

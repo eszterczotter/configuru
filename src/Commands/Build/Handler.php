@@ -48,7 +48,7 @@ class Handler
 
     private function findGuruFiles(string $path) : array
     {
-        return array_values(iterator_to_array($this->finder->in($path)->files()->name('*.guru')));
+        return array_values(iterator_to_array($this->finder->in($path)->files()->name('*.guru*')));
     }
 
     private function getPath(Command $command): string
@@ -58,7 +58,7 @@ class Handler
 
     private function getFileName(SplFileInfo $file): string
     {
-        return preg_replace('/\.guru$/', '', $file->getRealPath());
+        return preg_replace('/\.guru/', '', $file->getRealPath());
     }
 
     private function getReplacedContent($file): string

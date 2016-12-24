@@ -35,11 +35,11 @@ replace:
 ### Add .guru files
 
 For each file you wish to replace,
-add a `.guru` file in the same folder.
+add a guru file in the same folder.
 For example,
 if you wish to build your `config.yml` file,
-add a `config.yml.guru` file to your project
-and use `:(key)` in the `.guru` file
+add a `config.guru.yml` file to your project
+and use `:(key)` in the guru file
 as a placeholder for the value
 you configured in `configuru.yml`.
 
@@ -49,11 +49,11 @@ you configured in `configuru.yml`.
 vendor/bin/configuru build
 ```
 
-This command will look for all the `.guru` files
+This command will look for all the guru files
 in your project folders recursively
 and replace the configured keys with the values
 and save them to a file with the same filename,
-but without the .guru extension.
+but without the `.guru` extension.
 
 *Configuru will overwrite any file it encounters!*
 
@@ -69,7 +69,7 @@ like this: `\:(key)`. It will be replaced with the string
 
 ### Build path
 
-By default, Configuru will build every `.guru` file
+By default, Configuru will build every guru file
 it can find within the current working directory.
 You can specify a different path
 as the first argument of the command.
