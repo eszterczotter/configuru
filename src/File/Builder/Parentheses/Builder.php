@@ -22,9 +22,9 @@ class Builder implements \Configuru\File\Builder\Builder
         $this->replaceContent($file);
     }
 
-    private function replaceContent(SplFileInfo $file) : int
+    private function replaceContent(SplFileInfo $file)
     {
-        return file_put_contents($this->getFileName($file), $this->getReplacedContent($file));
+        file_put_contents($this->getFileName($file), $this->getReplacedContent($file));
     }
 
     private function getFileName(SplFileInfo $file) : string
@@ -34,7 +34,7 @@ class Builder implements \Configuru\File\Builder\Builder
 
     private function getReplacedContent($file) : string
     {
-        return strtr($file->getContents(), $this->getReplacePairs());
+        return strtr(file_get_contents($file->getRealPath()), $this->getReplacePairs());
     }
 
     private function getReplacePairs() : array
