@@ -2,7 +2,7 @@
 
 namespace Configuru\Commands\Build;
 
-use Configuru\Configuration\Configuration;
+use Configuru\File\Builder\Builder;
 use Configuru\File\Finder;
 use SplFileInfo;
 
@@ -14,25 +14,25 @@ class Handler
     private $finder;
 
     /**
-     * @var Configuration
+     * @var Builder
      */
-    private $configuration;
+    private $builder;
 
-    public function __construct(Finder $finder, Configuration $configuration)
+    public function __construct(Finder $finder, Builder $builder)
     {
         $this->finder = $finder;
-        $this->configuration = $configuration;
+        $this->builder = $builder;
     }
 
     public function handle(Command $command) : void
     {
-        $this->buildGuruFiles(...$this->findGuruFiles($command));
+        $this->buildFilesFrom(...$this->findGuruFiles($command));
     }
 
-    private function buildGuruFiles(SplFileInfo ...$files) : void
+    private function buildFilesFrom(SplFileInfo ...$files) : void
     {
         foreach ($files as $file) {
-            $this->replaceContent($file);
+            $this->builder->build($file);
         }
     }
 
@@ -41,35 +41,8 @@ class Handler
         return $this->finder->findGuruFiles($this->getPath($command));
     }
 
-    private function replaceContent(SplFileInfo $file): int
-    {
-        return file_put_contents($this->getFileName($file), $this->getReplacedContent($file));
-    }
-
     private function getPath(Command $command): string
     {
         return realpath($command->getPath());
-    }
-
-    private function getFileName(SplFileInfo $file): string
-    {
-        return strtr($file->getRealPath(), '.guru', '');
-    }
-
-    private function getReplacedContent($file): string
-    {
-        return strtr($file->getContents(), $this->getReplacePairs());
-    }
-
-    private function getReplacePairs() : array
-    {
-        $replacements = [];
-
-        foreach ($this->configuration->getReplacements() as $key => $value) {
-            $replacements["\\:({$key})"] = ":({$key})";
-            $replacements[":({$key})"] = $value;
-        }
-
-        return $replacements;
     }
 }
