@@ -4,7 +4,7 @@ namespace Configuru\Commands\Build;
 
 use Configuru\Configuration\Configuration;
 use Symfony\Component\Finder\Finder;
-use Symfony\Component\Finder\SplFileInfo;
+use SplFileInfo;
 
 class Handler
 {
@@ -24,26 +24,31 @@ class Handler
         $this->configuration = $configuration;
     }
 
-    public function handle(Command $command)
+    public function handle(Command $command) : void
     {
-        foreach ($this->getGuruFiles($command) as $file) {
+        $this->buildGuruFiles(...$this->getGuruFiles($command));
+    }
+
+    private function buildGuruFiles(SplFileInfo ...$files) : void
+    {
+        foreach ($files as $file) {
             $this->replaceContent($file);
         }
     }
 
-    private function getGuruFiles(Command $command) : Finder
+    private function getGuruFiles(Command $command) : array
     {
         return $this->findGuruFiles($this->getPath($command));
     }
 
-    private function replaceContent($file): int
+    private function replaceContent(SplFileInfo $file): int
     {
         return file_put_contents($this->getFileName($file), $this->getReplacedContent($file));
     }
 
-    private function findGuruFiles(string $path) : Finder
+    private function findGuruFiles(string $path) : array
     {
-        return $this->finder->in($path)->files()->name('*.guru');
+        return array_values(iterator_to_array($this->finder->in($path)->files()->name('*.guru')));
     }
 
     private function getPath(Command $command): string
@@ -58,10 +63,10 @@ class Handler
 
     private function getReplacedContent($file): string
     {
-        return strtr($file->getContents(), $this->getReplacements());
+        return strtr($file->getContents(), $this->getReplacePairs());
     }
 
-    private function getReplacements()
+    private function getReplacePairs() : array
     {
         $replacements = [];
 
