@@ -21,5 +21,7 @@ class BuildCommandCest
         $I->runShellCommand("bin/configuru build example");
         $I->openFile(__DIR__ . '/../../example/config.yml');
         $I->seeInThisFile('correct value');
+        $I->seeInThisFile(':(key)');
+        $I->dontSeeInThisFile('\:(key)');
     }
 }

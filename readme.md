@@ -49,3 +49,11 @@ and save them to a file with the same filename,
 but without the .guru extension.
 
 *Configuru will overwrite any file it encounters!*
+
+### Escape keys
+
+If you have text in your files in the format `:(key)`,
+but you don't wish to replace it,
+just add a backslash before the colon to escape that key,
+like this: `\:(key)`. It will be replaced with the string
+`:(key)` without the backslash.

@@ -66,6 +66,7 @@ class Handler
         $replacements = [];
 
         foreach ($this->configuration->getReplacements() as $key => $value) {
+            $replacements["\\:({$key})"] = ":({$key})";
             $replacements[":({$key})"] = $value;
         }
 
