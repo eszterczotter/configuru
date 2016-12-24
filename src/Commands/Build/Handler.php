@@ -4,7 +4,7 @@ namespace Configuru\Commands\Build;
 
 use Configuru\Configuration\Configuration;
 use Symfony\Component\Finder\Finder;
-use Symfony\Component\Yaml\Parser;
+use Symfony\Component\Finder\SplFileInfo;
 
 class Handler
 {
@@ -26,13 +26,49 @@ class Handler
 
     public function handle(Command $command)
     {
+        foreach ($this->getGuruFiles($command) as $file) {
+            $this->replaceContent($file);
+        }
+    }
+
+    private function getGuruFiles(Command $command) : Finder
+    {
+        return $this->findGuruFiles($this->getPath($command));
+    }
+
+    private function replaceContent($file): int
+    {
+        return file_put_contents($this->getFileName($file), $this->getReplacedContent($file));
+    }
+
+    private function findGuruFiles(string $path) : Finder
+    {
+        return $this->finder->in($path)->files()->name('*.guru');
+    }
+
+    private function getPath(Command $command): string
+    {
+        return realpath($command->getPath());
+    }
+
+    private function getFileName(SplFileInfo $file): string
+    {
+        return preg_replace('/\.guru$/', '', $file->getRealPath());
+    }
+
+    private function getReplacedContent($file): string
+    {
+        return strtr($file->getContents(), $this->getReplacements());
+    }
+
+    private function getReplacements()
+    {
+        $replacements = [];
+
         foreach ($this->configuration->getReplacements() as $key => $value) {
-            $replace[":({$key})"] = $value;
+            $replacements[":({$key})"] = $value;
         }
-        $files = $this->finder->in(realpath($command->getPath()))->files()->name('*.guru');
-        foreach ($files as $file) {
-            $path = preg_replace('/\.guru$/', '', $file->getRealPath());
-            file_put_contents($path, strtr($file->getContents(), $replace));
-        }
+
+        return $replacements;
     }
 }
