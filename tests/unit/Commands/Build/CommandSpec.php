@@ -19,7 +19,7 @@ class CommandSpec extends ObjectBehavior
 
     function its_path_can_be_set_in_the_constructor()
     {
-        $this->beConstructedWith('example');
-        $this->getPath()->shouldReturn('example');
+        $this->beConstructedWith('examples');
+        $this->getPath()->shouldReturn('examples');
     }
 }

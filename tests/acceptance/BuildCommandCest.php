@@ -17,14 +17,14 @@ class BuildCommandCest
 
     function buildsTheConfigFilesFromTheGuruFiles(AcceptanceTester $I)
     {
-        $I->cleanDir("example");
+        $I->cleanDir("examples");
         $I->copyDir(__DIR__ . '/../_files', __DIR__ . '/../../');
-        $I->runShellCommand("bin/configuru build example");
-        $I->openFile(__DIR__ . '/../../example/config.yml');
+        $I->runShellCommand("bin/configuru build examples");
+        $I->openFile(__DIR__ . '/../../examples/config.yml');
         $I->seeInThisFile('correct value');
         $I->seeInThisFile(':(key)');
         $I->dontSeeInThisFile('\:(key)');
-        $I->dontSeeFileFound(__DIR__ . '/../../example/config');
-        $I->seeFileFound(__DIR__ . '/../../example/conf');
+        $I->dontSeeFileFound(__DIR__ . '/../../examples/config');
+        $I->seeFileFound(__DIR__ . '/../../examples/conf');
     }
 }
