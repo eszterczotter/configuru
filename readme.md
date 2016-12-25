@@ -1,5 +1,7 @@
 # codress/configuru
 
+![Build status](https://travis-ci.org/codress/configuru.svg?branch=master "Build status")
+
 ## Installation
 
 If you are using composer,
