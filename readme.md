@@ -2,6 +2,21 @@
 
 ![Build status](https://travis-ci.org/codress/configuru.svg?branch=master "Build status")
 
+## About Configuru
+
+Sometimes you tweak a configuration file just a little bit,
+everything seems to be working,
+but after a couple weeks or months,
+an annoying bug appears in the system,
+and you debug for hours only to find the reason of it is
+that you didn't edit the same configuration in another file.
+
+If you ever ran into this issue
+then Configuru is just for you!
+With this tool,
+you can easily rebuild your configuration files
+from one single source of truth.
+
 ## Installation
 
 If you are using composer,
