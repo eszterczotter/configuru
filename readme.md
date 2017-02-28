@@ -1,6 +1,6 @@
-# codress/configuru
+# webmaesther/configuru
 
-![Build status](https://travis-ci.org/codress/configuru.svg?branch=master "Build status")
+![Build status](https://travis-ci.org/webmaesther/configuru.svg?branch=master "Build status")
 
 ## About Configuru
 
@@ -23,7 +23,7 @@ If you are using composer,
 you can easily install Configuru for your project.
 
 ```
-composer require codress/configuru --dev
+composer require webmaesther/configuru --dev
 ```
 
 It is recommended
